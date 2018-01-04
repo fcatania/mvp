@@ -1,0 +1,17 @@
+.Header {
+  display: flex;
+  background: black;
+  height: 85px;
+  align-items: center;
+}
+
+.Header-title {
+  margin-left: 22px;
+  font-size: 22px;
+  color: white;
+}
+
+.Header-divider {
+  background: orange;
+  height: 5px;
+}
