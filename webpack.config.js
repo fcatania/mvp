@@ -19,6 +19,12 @@ module.exports = {
             presets: ['react', 'es2015']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        exclude: path.join(__dirname, '/node_modules'),
+        include: path.join(__dirname, '/client/src'),
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   }
