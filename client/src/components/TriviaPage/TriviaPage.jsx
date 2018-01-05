@@ -2,6 +2,7 @@ import React from 'react';
 import './TriviaPage.css';
 import Question from '../Question/Question.jsx';
 import Answered from '../Answered/Answered.jsx';
+import Finished from '../Finished/Finished.jsx';
 
 class TriviaPage extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class TriviaPage extends React.Component {
           {this.state.currentQuestion !== null && <Question {...this.state.currentQuestion} onOptionClick={this.onOptionClick.bind(this)}/>}
         </div>
         {this.state.answered && <Answered correctly={this.state.correct} onNextClick={this.onNextClick.bind(this)} finished={this.state.finished}/>}
-        {this.state.finished && <span>FINISHED,  you scored: {this.state.score} out of {this.state.total}</span>}
+        {this.state.finished && <Finished score={this.state.score} total={this.state.total}/>}
       </div>
     );
   }

@@ -1,13 +1,26 @@
 .Answered {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Answered-correctly {
-  color: green;
+  color: rgb(8, 172, 8);
+  padding: 20px;
+  border: 4px solid rgb(8, 172, 8);
+  border-radius: 6px;
+  font-size: 20px;
+  width: 20%;
 }
 
 .Answered-incorrectly {
   color: red;
+  padding: 20px;
+  border: 4px solid red;
+  border-radius: 6px;
+  font-size: 20px;
+  width: 20%;
 }
 
 .Answered-button {

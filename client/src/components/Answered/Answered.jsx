@@ -4,7 +4,7 @@ import './Answered.css';
 const Answered = ({ correctly, onNextClick, finished }) => {
   return (
     <div className="Answered">
-      {correctly ? <div className="Answered-correctly">CORRECT</div> : <div className="Answered-incorrectly">INCORRECT</div>}
+      {correctly ? <div className="Answered-correctly"><b>CORRECT</b></div> : <div className="Answered-incorrectly"><b>INCORRECT</b></div>}
       {!finished && <button className="Answered-button" onClick={onNextClick}>NEXT</button>}
     </div>
   );

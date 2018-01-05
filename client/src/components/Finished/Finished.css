@@ -1,0 +1,20 @@
+.Finished {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.Finished-title {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.Finished-subtitle {
+  font-size: 26px;
+}
+
+.Finished-score {
+  margin-top: 12px;
+  font-size: 46px;
+}
