@@ -1,0 +1,23 @@
+.Card {
+  padding: 0px;
+  margin: 20px;
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.Card-title {
+  font-size: 26px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: rgb(255, 198, 93);
+}
+
+.Card-content {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+}
