@@ -1,0 +1,30 @@
+.Answered {
+  text-align: center;
+}
+
+.Answered-correctly {
+  color: green;
+}
+
+.Answered-incorrectly {
+  color: red;
+}
+
+.Answered-button {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: transparent;
+  margin: 8px;
+  margin-top: 26px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  height: 50px;
+  padding: 0px 20px;
+  box-shadow: 10px 10px 0px orange;
+  transition: 0.2s box-shadow ease-in-out;
+}
+
+.Answered-button:hover {
+  box-shadow: 4px 4px 0px orange;
+}
