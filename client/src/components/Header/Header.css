@@ -3,10 +3,12 @@
   background: black;
   height: 85px;
   align-items: center;
+  justify-content: space-between;
+  padding-left: 22px;
+  padding-right: 34px;
 }
 
 .Header-title {
-  margin-left: 22px;
   font-size: 22px;
   color: white;
 }
@@ -14,4 +16,25 @@
 .Header-divider {
   background: orange;
   height: 5px;
+}
+
+.Header-button {
+  display: inline-block;
+  outline: none;
+  background: transparent;
+  color: white;
+  border: 2px solid grey;
+  margin: 8px;
+  font-size: 18px;
+  width: 100px;
+  padding: 6px;
+}
+
+.Header-button:hover {
+  border-color: orange;
+}
+
+.Header-button.selected {
+  color: orange;
+  border: 2px solid orange;
 }
