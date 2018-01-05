@@ -3,27 +3,30 @@ import './TriviaPage.css';
 import Question from '../Question/Question.jsx';
 import Answered from '../Answered/Answered.jsx';
 
-let dummyQuestions = [
-  {title: 'How do you say code?', options: ['codego', 'códego', 'codigo', 'código'], correct_index: 3},
-  {title: 'How do you say variable?', options: ['variable', 'váriable', 'varioble', 'varieble'], correct_index: 0},
-  {title: 'How do you say function?', options: ['funcion', 'funciona', 'función', 'funciono'], correct_index: 2},
-  {title: 'How do you say constant?', options: ['constant', 'constanti', 'constanto', 'constante'], correct_index: 3},
-  {title: 'How do you say development?', options: ['desarrollador', 'desrollo', 'desarrollo', 'désrrollo'], correct_index: 2},
-  {title: 'How do you say developer?', options: ['desarrollador', 'desrollodor', 'desarrollo', 'desarrollado'], correct_index: 0}
-];
-
 class TriviaPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {questions: dummyQuestions,
-      currentQuestion: dummyQuestions[0],
-      remaining: dummyQuestions.length,
-      total: dummyQuestions.length,
+    this.state = {questions: [],
+      currentQuestion: null,
+      remaining: 0,
+      total: 0,
       score: 0,
       answered: false,
       correct: false,
       finished: false
     };
+  }
+
+  componentDidMount() {
+    fetch('http://127.0.0.1:2410/api/questions').then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.error('FETCH NOT OK');
+      }
+    }).then(json => {
+      this.setState({questions: json, currentQuestion: json[0], remaining: json.length, total: json.length});
+    });
   }
 
   onOptionClick(index) {
@@ -43,7 +46,6 @@ class TriviaPage extends React.Component {
 
   onNextClick() {
     let newQuestionIndex = this.state.total - this.state.remaining;
-    console.log('Next question is: ' + this.state.questions[newQuestionIndex].title);
     this.setState({
       answered: false,
       correct: false,
@@ -56,7 +58,7 @@ class TriviaPage extends React.Component {
       <div className="TriviaPage">
         <span>Remaining: {this.state.remaining}</span>
         <div className="TriviaPage-question-container">
-          <Question {...this.state.currentQuestion} onOptionClick={this.onOptionClick.bind(this)}/>
+          {this.state.currentQuestion !== null && <Question {...this.state.currentQuestion} onOptionClick={this.onOptionClick.bind(this)}/>}
         </div>
         {this.state.answered && <Answered correctly={this.state.correct} onNextClick={this.onNextClick.bind(this)} finished={this.state.finished}/>}
         {this.state.finished && <span>FINISHED,  you scored: {this.state.score} out of {this.state.total}</span>}
