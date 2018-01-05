@@ -7,7 +7,11 @@ import TriviaPage from '../TriviaPage/TriviaPage.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isShowingCards: true, isShowingTrivia: false, cards: []}
+    this.state = {isShowingCards: true,
+      isShowingTrivia: false,
+      cards: [],
+      questions: []
+    }
   }
 
   componentDidMount() {
@@ -19,6 +23,15 @@ class App extends React.Component {
       }
     }).then(json => {
       this.setState({cards: json});
+    });
+    fetch('http://127.0.0.1:2410/api/questions').then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.error('FETCH NOT OK');
+      }
+    }).then(json => {
+      this.setState({questions: json, currentQuestion: json[0]});
     });
   }
 
@@ -39,7 +52,7 @@ class App extends React.Component {
       <div className="App">
         <Header isShowingCards={this.state.isShowingCards} isShowingTrivia={this.state.isShowingTrivia} onClickCards={this.onClickCardsHandler.bind(this)} onClickTrivia={this.onClickTriviaHandler.bind(this)}/>
         {this.state.isShowingCards && <CardsPage cards={this.state.cards}/>}
-        {this.state.isShowingTrivia && <TriviaPage />}
+        {this.state.isShowingTrivia && <TriviaPage questions={this.state.questions}/>}
       </div>);
   }
 }

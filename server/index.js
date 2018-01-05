@@ -24,10 +24,12 @@ const dummyQuestions = [
 app.use(cors());
 
 app.get('/api/cards', (req, res) => {
+  console.log('getting cards');
   res.status(200).json(dummyCards);
 });
 
 app.get('/api/questions', (req, res) => {
+  console.log('getting questions');
   res.status(200).json(dummyQuestions);
 });
 

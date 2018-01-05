@@ -6,27 +6,15 @@ import Answered from '../Answered/Answered.jsx';
 class TriviaPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {questions: [],
-      currentQuestion: null,
-      remaining: 0,
-      total: 0,
+    this.state = {
+      currentQuestion: props.questions[0],
+      remaining: props.questions.length,
+      total: props.questions.length,
       score: 0,
       answered: false,
       correct: false,
       finished: false
     };
-  }
-
-  componentDidMount() {
-    fetch('http://127.0.0.1:2410/api/questions').then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.error('FETCH NOT OK');
-      }
-    }).then(json => {
-      this.setState({questions: json, currentQuestion: json[0], remaining: json.length, total: json.length});
-    });
   }
 
   onOptionClick(index) {
@@ -49,7 +37,7 @@ class TriviaPage extends React.Component {
     this.setState({
       answered: false,
       correct: false,
-      currentQuestion: this.state.questions[newQuestionIndex]
+      currentQuestion: this.props.questions[newQuestionIndex]
     })
   }
 
