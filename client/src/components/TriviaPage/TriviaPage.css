@@ -1,3 +1,9 @@
 .TriviaPage {
-  
+  padding: 12px;
+}
+
+.TriviaPage-question-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

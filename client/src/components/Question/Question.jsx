@@ -13,6 +13,4 @@ const Question = ({ title, options, correct_index, onOptionClick }) => {
   );
 }
 
-// although my options click and the options themselves are hardcoded, i can guarantee there will always be four options.
-
 export default Question;
