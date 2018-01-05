@@ -39,10 +39,10 @@ exports.findAllQuestions = (cb) => {
   })
 };
 
-exports.createCards = (cards) => {
-  Card.create(cards);
+exports.createCards = (cards, cb) => {
+  Card.create(cards, cb);
 };
 
-exports.createQuestions = (questions) => {
-  Question.create(questions);
+exports.createQuestions = (questions, cb) => {
+  Question.create(questions, cb);
 };
