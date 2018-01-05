@@ -5,7 +5,7 @@ import Card from '../Card/Card.jsx';
 const CardsPage = ({ cards }) => {
   return (
     <div className="CardsPage">
-      {cards.map(card => (<Card {...card}/>))}
+      {cards.map((card, index) => (<Card {...card} key={index}/>))}
     </div>
   );
 }
